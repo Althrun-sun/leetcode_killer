@@ -28,22 +28,23 @@
     <div class="accordion" id="problemAccordion" data-bs-theme="dark">
         <div class="accordion-item">
             <h2 class="accordion-header" id="heading{{ loop.index }}">
-                <button class="accordion-button collapsed fw-bolder fs-3" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button collapsed fw-bolder fs-1" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapse{{ loop.index }}" aria-expanded="false"
                     aria-controls="collapse{{ loop.index }}">
-                    {{ problem.category }}
+                    {{ problem.category }} 
                 </button>
+                <div class="progress" role="progressbar" aria-label="Animated striped example"
+                aria-valuenow=aria-valuenow="{{ problem_stat[problem.category].completed / problem_stat[problem.category].total * 100 }}"
+                aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                    id="category-progress-bar-{{ problem.category }}"
+                    style="width: {{ (problem_stat[problem.category].completed / problem_stat[problem.category].total) * 100 }}%">
+                    {{ problem_stat[problem.category].completed }}/{{ problem_stat[problem.category].total }}</div>
+            </div>
             </h2>
             <div id="collapse{{ loop.index }}" class="accordion-collapse collapse"
                 aria-labelledby="heading{{ loop.index }}" data-bs-parent="#problemAccordion">
-                <div class="progress" role="progressbar" aria-label="Animated striped example"
-                    aria-valuenow=aria-valuenow="{{ problem_stat[problem.category].completed / problem_stat[problem.category].total * 100 }}"
-                    aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                        id="category-progress-bar-{{ problem.category }}"
-                        style="width: {{ (problem_stat[problem.category].completed / problem_stat[problem.category].total) * 100 }}%">
-                        {{ problem_stat[problem.category].completed }}/{{ problem_stat[problem.category].total }}</div>
-                </div>
+     
 
                 <div class="accordion-body">
                     <ul>
@@ -61,7 +62,7 @@
                                 <tr>
                                     <td>
                                         <input 
-                                            style="height:20px;"
+                                            style="width: 40px; height: 40px;"
                                             class="form-check-input me-1" type="checkbox"
                                             value="{{question.completed}}" id="checkbox-{{question.id}}"
                                             data-id="{{question.id}}" data-category="{{ problem.category }}" {% if
