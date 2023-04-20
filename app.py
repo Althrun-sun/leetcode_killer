@@ -48,8 +48,6 @@ def update_problem_status():
         problem_list = problem_info["questions"]
         for q_index,problem in enumerate(problem_list):
             if problem['id'] == problem_id:
-                print('finded',problem)
-                # problem['completed'] = new_status
                 json_data["problems"][cat_index]['questions'][q_index]['completed']=new_status
                 break
     upload_json_to_s3(json_data, 'leet-code-killer', 'data/problems_data.json')
