@@ -18,15 +18,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
-        // 监听所有复选框的更改事件
         $('input[type=checkbox]').on('change', function() {
-            // 获取问题 ID 和新状态
             var problem_id = $(this).data('id');
             var new_status = $(this).is(':checked');
 
-            // 发送请求以更新问题状态
             $.ajax({
-                url: '/update_problem_status',  // 确保此 URL 与您的 Flask 路由匹配
+                url: '/update_problem_status',  
                 method: 'POST',
                 data: {
                     'id': problem_id,
@@ -42,6 +39,60 @@
         });
     });
 </script>
-
+<script>
+    $(document).ready(function() {
+        function updateProgressBar() {
+          const totalQuestions = $('input[type="checkbox"]').length;
+          const totalCompleted = $('input[type="checkbox"]:checked').length;
+          const progressPercentage = (totalCompleted / totalQuestions) * 100;
+      
+          // 更新总进度条
+          $('#total-progress-bar').css('width', progressPercentage + '%');
+          $('.fw-bolder.fs-2').text('(' + totalCompleted + '/' + totalQuestions + ')');
+      
+          // 更新每个分类的进度条
+          $('input[type="checkbox"]').each(function() {
+            const category = $(this).data('category');
+            const categoryQuestions = $('input[data-category="' + category + '"]').length;
+            const categoryCompleted = $('input[data-category="' + category + '"]:checked').length;
+            const categoryPercentage = (categoryCompleted / categoryQuestions) * 100;
+      
+            $('#category-progress-bar-' + category).css('width', categoryPercentage + '%');
+            $('#category-progress-bar-' + category).text(categoryCompleted + '/' + categoryQuestions);
+          });
+        }
+      
+        // 为所有checkbox添加事件监听器
+        $('input[type="checkbox"]').on('change', function() {
+          const questionId = $(this).data('id');
+          const newStatus = $(this).is(':checked');
+          $.post('/update_problem_status', {
+            id: questionId,
+            status: newStatus
+          });
+      
+          updateProgressBar();
+        });
+      
+        // 页面加载时初始化进度条
+        updateProgressBar();
+      });
+      
+</script>
+<script>
+    $('#reset-progress-btn').on('click', async function() {
+        if (confirm('Are you sure you wanna clear all the progress？')) {
+          try {
+            await $.post('/reset_progress');
+            location.reload();  // 重新加载页面以更新进度条和问题状态
+          } catch (error) {
+            console.error('Error resetting progress:', error);
+            alert('An error occurred while resetting progress. Please try again.');
+          }
+        }
+      });
+      
+      
+</script>
 </body>
 </html>
