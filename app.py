@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-
+from flask import Flask, render_template, request ,redirect, url_for
+import hashlib
 import boto3
 import json
 
@@ -65,5 +65,57 @@ def reset_progress():
     upload_json_to_s3(reset_data, 'leet-code-killer', 'data/problems_data.json')
     json_data = download_json_from_s3('leet-code-killer', 'data/problems_data.json')
     return 'ok',200
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        # 在此处处理表单提交和用户注册
+        username = request.form['username']
+        password = request.form['password']
+
+        hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
+        s3 = boto3.client('s3')
+        s3.put_object(
+        Body=json.dumps({'username':username,'pwd':hashed_password}),
+        Bucket='leet-code-killer',
+        Key="users/"+username+".json"
+        )
+
+
+        return redirect(url_for('index'))
+    else:
+        # 显示注册表单
+        return render_template('register.html')
+
+def check_password(username, password):
+    hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
+
+    try:
+        login_data = download_json_from_s3('leet-code-killer', 'users/'+username+'.json')
+        stored_password=login_data['pwd']
+    except Exception as e:
+        return False
+
+    return hashed_password == stored_password
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    invalid_login = False
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if check_password(username, password):
+            return redirect(url_for('index'))
+        else:
+            invalid_login = True
+
+    return render_template('login.html', invalid_login=invalid_login)
+
+
+
+    
+
 if __name__ == '__main__':
     app.run(debug=True)
