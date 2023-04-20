@@ -1,0 +1,31 @@
+<div>
+    <div class="position-relative">
+        <h1 style="text-align: center;">Leetcode killer 330</h1>
+    </div>
+    <div class="container">
+        {% for problem in problems %}
+        <div class="accordion" id="problemAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{ loop.index }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse{{ loop.index }}" aria-expanded="false"
+                        aria-controls="collapse{{ loop.index }}">
+                        {{ problem.category }}
+                    </button>
+                </h2>
+                <div id="collapse{{ loop.index }}" class="accordion-collapse collapse"
+                    aria-labelledby="heading{{ loop.index }}" data-bs-parent="#problemAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            {% for question in problem.questions %}
+                            <li>{{ question }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
