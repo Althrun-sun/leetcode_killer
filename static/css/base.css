@@ -1,5 +1,5 @@
 body {
-    background-image: url('/static/images/your-background-image.jpg'); /* 指定背景图片的路径 */
+    background-image: url('/static/images/UBC.jpg'); /* 指定背景图片的路径 */
     background-size: cover; /* 背景图片覆盖整个元素 */
     background-position: center center; /* 背景图片居中显示 */
     background-repeat: no-repeat; /* 不重复显示背景图片 */
