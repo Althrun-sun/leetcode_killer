@@ -14,7 +14,7 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 EXPOSE 80
 
 # 定义环境变量
-ENV FLASK_APP=my_flask_app.py
+ENV FLASK_APP=app.py
 
 # 当容器启动时，运行以下命令
 CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]
