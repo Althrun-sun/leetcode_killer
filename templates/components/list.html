@@ -31,20 +31,20 @@
                 <button class="accordion-button collapsed fw-bolder fs-1" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapse{{ loop.index }}" aria-expanded="false"
                     aria-controls="collapse{{ loop.index }}">
-                    {{ problem.category }} 
+                    {{ problem.category }}
                 </button>
                 <div class="progress" role="progressbar" aria-label="Animated striped example"
-                aria-valuenow=aria-valuenow="{{ problem_stat[problem.category].completed / problem_stat[problem.category].total * 100 }}"
-                aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                    id="category-progress-bar-{{ problem.category }}"
-                    style="width: {{ (problem_stat[problem.category].completed / problem_stat[problem.category].total) * 100 }}%">
-                    {{ problem_stat[problem.category].completed }}/{{ problem_stat[problem.category].total }}</div>
-            </div>
+                    aria-valuenow=aria-valuenow="{{ problem_stat[problem.category].completed / problem_stat[problem.category].total * 100 }}"
+                    aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                        id="category-progress-bar-{{ problem.category }}"
+                        style="width: {{ (problem_stat[problem.category].completed / problem_stat[problem.category].total) * 100 }}%">
+                        {{ problem_stat[problem.category].completed }}/{{ problem_stat[problem.category].total }}</div>
+                </div>
             </h2>
             <div id="collapse{{ loop.index }}" class="accordion-collapse collapse"
                 aria-labelledby="heading{{ loop.index }}" data-bs-parent="#problemAccordion">
-     
+
 
                 <div class="accordion-body">
                     <ul>
@@ -61,10 +61,8 @@
                                 {% for question in problem.questions %}
                                 <tr>
                                     <td>
-                                        <input 
-                                            style="width: 40px; height: 40px;"
-                                            class="form-check-input me-1" type="checkbox"
-                                            value="{{question.completed}}" id="checkbox-{{question.id}}"
+                                        <input style="width: 40px; height: 40px;" class="form-check-input me-1"
+                                            type="checkbox" value="{{question.completed}}" id="checkbox-{{question.id}}"
                                             data-id="{{question.id}}" data-category="{{ problem.category }}" {% if
                                             question.completed %}checked{% endif %}>
 
@@ -76,8 +74,10 @@
                                         </p>
                                     </td>
                                     <td>
-                                        <p class="fw-bolder fs-4 rounded-pill" style="border: 3px white solid; "><a
-                                                style="padding: 7px">Solution</a></p>
+                                        <p class="fw-bolder fs-4 rounded-pill" style="border: 3px white solid; ">
+                                            <a style="padding: 7px"
+                                                href="{{ url_for('solution', title=question.title) }}">Solution</a>
+                                        </p>
                                     </td>
                                 </tr>
                                 {% endfor %}

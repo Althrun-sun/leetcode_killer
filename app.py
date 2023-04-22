@@ -113,7 +113,13 @@ def login():
 
     return render_template('login.html', invalid_login=invalid_login)
 
-
+@app.route('/solution', methods=['GET', 'POST'])
+def solution():
+    title = request.args.get('title', None)
+    if request.method == 'POST':
+        pass
+    else:
+        return render_template('solution.html', title=title)
 
     
 
