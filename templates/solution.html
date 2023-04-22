@@ -14,15 +14,44 @@
 <body>
     {% include 'components/navbar.html' %}
     <div class="container">
-
-
         <div class="card text-center">
+
+
+
             <div class="card-header fw-bolder fs-2">
                 {{title}}
             </div>
+            <div class="row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Solution</h5>
+                            <p class="card-text fs-4">
+                            <pre style="font-size: 20px;">{{code_text}}</pre>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Explanation</h5>
+                            <p class="card-text fs-4">
+                                {{explaine_txt}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card-body">
-                <h5 class="card-title">Sample Solution of the {{title}}</h5>
-                <p class="card-text">here is the solution </p>
+                <!-- <h5 class="card-title">Solution</h5>
+                <p class="card-text">
+                <pre style="font-size: 20px;">{{code_text}}</pre>
+                </p>
+                <h5 class="card-title">Explanation</h5>
+                <p class="card-text">
+                    {{explaine_txt}}
+                </p> -->
                 <div class="form-floating">
                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
                         style="height: 100px"></textarea>
