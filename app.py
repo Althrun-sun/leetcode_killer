@@ -133,7 +133,7 @@ def login():
 
 
 openai.organization = "org-TONaHPuXZEzb15vTUf5Yl8UK"
-openai.api_key = "sk-3dqAbcK9p2EluYdd8L56T"+    "3BlbkFJLUUJczsonN4lUpsvkOuH"
+openai.api_key = "sk-3dqAbcK9p2EluYdd8L56T"+"3BlbkFJLUUJczsonN4lUpsvkOuH"
 
 
 def generate_text(title):
