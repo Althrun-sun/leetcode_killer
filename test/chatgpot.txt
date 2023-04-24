@@ -1,0 +1,17 @@
+curl https://api.openai.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer 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" \
+  -d '{
+     "model": "gpt-3.5-turbo",
+     "messages": [{"role": "user", "content": "在维修电梯中，三菱电梯菱云3
+外呼面板显示VIP是什么意思"}],
+     "temperature": 0.7
+   }'
+
+docker build -t chatbox .
+
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 907173727502.dkr.ecr.us-west-2.amazonaws.com
+
+docker tag chatbox:latest 907173727502.dkr.ecr.us-west-2.amazonaws.com/chatbox
+
+docker push 907173727502.dkr.ecr.us-west-2.amazonaws.com/chatbox
