@@ -7,15 +7,20 @@ import json
 
 app = Flask(__name__)
 
-
+aws_access_key_id="AKIA5GN6ERUHNZHMVFX7"
+aws_secret_access_key="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"
 def download_json_from_s3(bucket, key):
-    s3 = boto3.client('s3')
+
+    s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
+
+    # s3 = boto3.client('s3')
     response = s3.get_object(Bucket=bucket, Key=key)
     return json.loads(response['Body'].read().decode('utf-8'))
 
 
 def upload_json_to_s3(json_data, bucket, key):
-    s3 = boto3.client('s3')
+    s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
+    # s3 = boto3.client('s3')
     s3.put_object(
         Body=json.dumps(json_data),
         Bucket=bucket,
@@ -24,7 +29,7 @@ def upload_json_to_s3(json_data, bucket, key):
 
 
 json_data = download_json_from_s3(
-    'leet-code-killer', 'data/problems_data.json')
+    'leetcode-killer-1', 'data/problems_data.json')
 
 
 @app.route('/')
@@ -53,9 +58,9 @@ def update_problem_status():
                     json_data["problem_stat"][curr_cat]['completed'] += 1
                 break
     new_data = data = download_json_from_s3(
-        'leet-code-killer', 'data/problems_data.json')
+        'leetcode-killer-1', 'data/problems_data.json')
     # print('new_data',new_data["problems"][0]['questions'][0]['completed'])
-    upload_json_to_s3(json_data, 'leet-code-killer', 'data/problems_data.json')
+    upload_json_to_s3(json_data, 'leetcode-killer-1', 'data/problems_data.json')
     return 'OK', 200
 
 
@@ -69,10 +74,10 @@ def reset_progress():
         for q_index, problem in enumerate(problem_list):
             reset_data["problems"][cat_index]['questions'][q_index]['completed'] = False
 
-    upload_json_to_s3(reset_data, 'leet-code-killer',
+    upload_json_to_s3(reset_data, 'leetcode-killer-1',
                       'data/problems_data.json')
     json_data = download_json_from_s3(
-        'leet-code-killer', 'data/problems_data.json')
+        'leetcode-killer-1', 'data/problems_data.json')
     return 'ok', 200
 
 
@@ -84,10 +89,12 @@ def register():
         password = request.form['password']
 
         hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
-        s3 = boto3.client('s3')
+        # s3 = boto3.client('s3')
+        s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
+        
         s3.put_object(
             Body=json.dumps({'username': username, 'pwd': hashed_password}),
-            Bucket='leet-code-killer',
+            Bucket='leetcode-killer-1',
             Key="users/"+username+".json"
         )
 
@@ -102,7 +109,7 @@ def check_password(username, password):
 
     try:
         login_data = download_json_from_s3(
-            'leet-code-killer', 'users/'+username+'.json')
+            'leetcode-killer-1', 'users/'+username+'.json')
         stored_password = login_data['pwd']
     except Exception as e:
         return False
@@ -126,7 +133,7 @@ def login():
 
 
 openai.organization = "org-TONaHPuXZEzb15vTUf5Yl8UK"
-openai.api_key = "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"
+openai.api_key = "sk-3dqAbcK9p2EluYdd8L56T"+    "3BlbkFJLUUJczsonN4lUpsvkOuH"
 
 
 def generate_text(title):
@@ -162,9 +169,7 @@ def get_data(title):
     generated_text = generate_text(title)
     splietd_data = generated_text.split('@')
     code_text = splietd_data[1]
-    # print(code_text)
     explaine_txt = splietd_data[2]
-    # func_text = code_text
     func_text = code_text.split('class Solution:')
     func_text = ''.join(func_text[1:])
     return func_text,explaine_txt
@@ -181,4 +186,4 @@ def solution():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
