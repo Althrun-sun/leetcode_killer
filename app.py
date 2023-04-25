@@ -1,5 +1,4 @@
 import openai
-import os
 from flask import Flask, render_template, request, redirect, url_for
 import hashlib
 import boto3
@@ -84,7 +83,6 @@ def reset_progress():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        # 在此处处理表单提交和用户注册
         username = request.form['username']
         password = request.form['password']
 
@@ -100,7 +98,6 @@ def register():
 
         return redirect(url_for('index'))
     else:
-        # 显示注册表单
         return render_template('register.html')
 
 
