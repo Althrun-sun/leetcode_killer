@@ -1,6 +1,6 @@
 
-# leetcode killer
-[Hosted on shinyapps.io](https://cchchechen.shinyapps.io/NBA_Player_Stats/)
+# Leetcode Killer
+[Hosted on AWS](http://ec2-34-222-141-10.us-west-2.compute.amazonaws.com:5000/)
 
 ***A comprehensive NBA player data visualization dashboard application.***
 
@@ -60,34 +60,7 @@ Therefore, users can study each NBA player's performance in detail and understan
 ## Contributors
 The contributors of this project are Peng Zhang, Fujie Sun, Chen Lin, and Nate Puangpanbut.
 
-## Installation
 
-To install `nba_player_stat` locally, you can:
-
-1. Clone this repository with:
-
-```
-git clone https://github.com/UBC-MDS/nba_player_stat.git
-```
-
-2. Run the following command in your R console to install the required libraries locally:
-
-```{r}
-install.packages(c('tidyverse', 'dplyr', 'plyr', 'shiny', 'ggplot2', 'plotly', 'rvest', 'ggrepel', 'readr', 'RCurl', 'jpeg', 'thematic', 'httr', 'stringr', 'htmltools', 'devtools'))
-```
-```{r}
-devtools::install_github("ricardo-bion/ggradar", 
-                          dependencies = TRUE)
-```
-
-3. Finally, run the app locally by: 
-
-- Open `Rstudio`, navigate to the project folder, open `app.R` and run it by clicking `Run` button on the top-right of RStudio.
-
-- Open a command line, navigate to the project folder, run the following command to run the app locally:
-    ```
-    RScript app.R
-    ```
 
 ## Get involved 
 
