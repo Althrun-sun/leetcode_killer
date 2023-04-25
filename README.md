@@ -34,6 +34,9 @@ Leetcode Killer is designed to help users, especially the creator, to prepare fo
 ## Description of App
 
 Leetcode Killer is a web application that offers a personalized experience to users who are preparing for coding interviews. It helps users to concentrate on the most critical 200 problems by tracking their progress and providing real-time assistance from the "teacher" using OpenAI's API.
+##Sketch
+![image](https://user-images.githubusercontent.com/81791425/234162592-eb2aeb39-a723-4c1f-a892-50dda1426514.png)
+
 
 ## Features
 
