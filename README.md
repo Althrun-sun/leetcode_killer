@@ -1,20 +1,19 @@
-
 # Leetcode Killer
-[Hosted on AWS](http://ec2-34-222-141-10.us-west-2.compute.amazonaws.com:5000/)
+[Hosted on AWS click here to navigate](http://ec2-34-222-141-10.us-west-2.compute.amazonaws.com:5000/)
 
-***A comprehensive NBA player data visualization dashboard application.***
+***A personalized coding interview preparation web application.***
 
 ## Welcome!
 
-Welcome to the repository of the NBA Performance App  :confetti_ball:  ！
+Welcome to the repository of the Leetcode Killer :confetti_ball: ！
 
-Thank you for visiting our project,hope all of you can enjoy browsing the NBA player performance.
+Thank you for visiting our project, we hope this app can assist you in preparing for coding interviews by providing a personalized Leetcode experience.
 
-This document provides basic information of this NBA Player Performance.Please feel free to navigate each section by the list below: 
+This document provides basic information about the Leetcode Killer. Please feel free to navigate each section by the list below:
 
 * [What are we doing?](#what-are-we-doing)
 * [Description of App](#description-of-app)
-* [Sketch](#sketch)
+* [Features](#features)
 * [Contributors](#contributors)
 * [How can you get involved?](#get-involved)
 
@@ -22,52 +21,37 @@ This document provides basic information of this NBA Player Performance.Please f
 
 ### The problem
 
-How can we understand a NBA player's historical performance and skills during their career?
-
+Preparing for coding interviews can be overwhelming, especially when you have already solved 300-400 problems on Leetcode. When it comes to interview preparation, focusing on the most important 200 problems is more effective, but the official Leetcode website doesn't provide a personalized to-do list based on user's needs.
 
 ### The solution
 
-The NBA performance app will:
+Leetcode Killer is designed to help users, especially the creator, to prepare for coding interviews by providing a personalized experience. This web application mainly includes the following features:
 
-* Improve visibility for the player's historical performance data.
-* Help NBA fans better understand their favorite players and visualize how the players have performed historically over time and across players and teams.
-* Let fans to determine a player's style such as what kind of player he is, how many games he plays, how much he scores per game, the number of assists, etc., and use this as a starting point to get to know a new player better. 
-
-The most important thing is that we can honor and learn those former NBA superstars, such as Micheal Jordan and Kobe Bryant, by visualizing their performances. For instance, Kobe Bryant, we can learn about the wonders the legendary superstar created with the Lakers and the glory of the purple and gold dynasty with scored 33,643 points, 7,047 rebounds, and 6,306 assists during the entire career. Salute to the eternal Lakers #24.
+1. Displaying the most frequent problems of various data structures and algorithms with a progress bar to track your progress.
+2. Login and registration functionality for recording individual progress, allowing each user to track their progress, not just the creator.
+3. Auto-generating Leetcode answers by calling the OpenAI API, enabling users to consult with the "teacher" or debug in real-time. This feature can significantly improve learning efficiency and better prepare users for coding interviews.
 
 ## Description of App
 
-The visualization app contains a landing page that shows NBA player performances. The visualization comprises the data of over 500 NBA players among 30 NBA teams. This app aims to help enthusiast NBA fans to understand better and assess NBA player performances.
+Leetcode Killer is a web application that offers a personalized experience to users who are preparing for coding interviews. It helps users to concentrate on the most critical 200 problems by tracking their progress and providing real-time assistance from the "teacher" using OpenAI's API.
 
-The visualization is designed to display multiple statistics of NBA players. The app allows users to search for an interested NBA player by name with a search box item, for example, "Micheal Jordan", the app then shows the corresponding player's information. Furthermore. the users then are able to filter and scope the performances of the players with three types of filters,
+## Features
 
-- A slider of the year the player plays in NBA. 
-
-- A check box of statistics to show.
-
-- A check box of the team the player plays for. 
-
-- A Tick box of the whole career statistics of the player.
-
-We aim to offer three charts of player performances; Scoring performance(Point per game, Shooting accuracy), Game play(Number of games), and Skill indicators(Point per game, Total Rebound per game, Assist per game, Steal per game, and Block per game). These will show the player's performances according to the player search and its filter.
-
-Therefore, users can study each NBA player's performance in detail and understand more about the player they are interested in.
-
-
-## Sketch
-<img src="img/dashboard_design_version4.png">
+- Most frequent problems of various data structures and algorithms
+- Progress bar to track your problem-solving progress
+- Login and registration functionality for individual progress tracking
+- Real-time assistance from the "teacher" using OpenAI's API
+- Improved learning efficiency and better coding interview preparation
 
 ## Contributors
-The contributors of this project are Peng Zhang, Fujie Sun, Chen Lin, and Nate Puangpanbut.
-
-
+The main contributor of this project is [Your Name]. Additional contributions are welcome!
 
 ## Get involved 
 
-If you have any new ideas and suggestions for improvement about this app, please feel free to contact us. The main contact email is: althrunsun@gmail.com
+If you have any new ideas and suggestions for improvement about this app, please feel free to contact us. The main contact email is: [your-email@example.com]
 
 Please note that it's very important to us that we maintain a positive and supportive environment for everyone who wants to participate. You can check the code of conduct for more details if you want to be with us.
 
 # License
-`nba_player_stat` is licensed under the terms of the MIT license.
-Please refer to the License File [here](https://github.com/UBC-MDS/nba_player_stat/blob/main/LICENSE)
+`leetcode_killer` is licensed under the terms of the MIT license.
+Please refer to the License File [here](https://github.com/[Your_Github_Username]/leetcode_killer/blob/main/LICENSE)
