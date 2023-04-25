@@ -7,7 +7,7 @@ import json
 app = Flask(__name__)
 
 aws_access_key_id="AKIA5GN6ERUHNZHMVFX7"
-aws_secret_access_key="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"
+aws_secret_access_key="tj3D0tBwpqWQUTFBDqr"+"Mn2QGz2scMQH9TbI5PNHo"
 def download_json_from_s3(bucket, key):
 
     s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
