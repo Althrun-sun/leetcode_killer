@@ -1,8 +1,5 @@
-[![App Deploys](https://github.com/UBC-MDS/nba_player_stat/actions/workflows/deploy-app.yaml/badge.svg)](https://github.com/UBC-MDS/nba_player_stat/actions/workflows/deploy-app.yaml)
-[![App Deploys](https://github.com/UBC-MDS/nba_player_stat/actions/workflows/testing.yaml/badge.svg)](https://github.com/UBC-MDS/nba_player_stat/actions/workflows/testing.yaml)
 
-# NBA Player Performances 
-
+# leetcode killer
 [Hosted on shinyapps.io](https://cchchechen.shinyapps.io/NBA_Player_Stats/)
 
 ***A comprehensive NBA player data visualization dashboard application.***
