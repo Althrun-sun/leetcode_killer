@@ -21,7 +21,7 @@ This document provides basic information about the Leetcode Killer. Please feel 
 
 ### The problem
 
-Preparing for coding interviews can be overwhelming, especially when you have already solved 300-400 problems on Leetcode. When it comes to interview preparation, focusing on the most important 200 problems is more effective, but the official Leetcode website doesn't provide a personalized to-do list based on user's needs.
+Preparing for coding interviews can be overwhelming, especially when you have already solved a lot of problems on Leetcode.(I have done over 300-400 problems) When it comes to interview preparation, focusing on the most important 200 problems is more effective, but the official Leetcode website doesn't provide a personalized to-do list based on user's needs.
 
 ### The solution
 
@@ -44,11 +44,11 @@ Leetcode Killer is a web application that offers a personalized experience to us
 - Improved learning efficiency and better coding interview preparation
 
 ## Contributors
-The main contributor of this project is [Your Name]. Additional contributions are welcome!
+The main contributor of this project is Althrun Sun. Additional contributions are welcome!
 
 ## Get involved 
 
-If you have any new ideas and suggestions for improvement about this app, please feel free to contact us. The main contact email is: [your-email@example.com]
+If you have any new ideas and suggestions for improvement about this app, please feel free to contact us. The main contact email is: AlthrunSun@gmail.com
 
 Please note that it's very important to us that we maintain a positive and supportive environment for everyone who wants to participate. You can check the code of conduct for more details if you want to be with us.
 
